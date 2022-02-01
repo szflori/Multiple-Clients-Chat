@@ -14,7 +14,7 @@ public class Server {
             while (!serverSocket.isClosed()){
                 Socket socket = serverSocket.accept();
                 System.out.println("A new client has connected!");
-                ClientHandler clientHandler = new ClienHandler(socket);
+                ClientHandler clientHandler = new ClientHandler(socket);
 
                 Thread thread = new Thread(clientHandler);
                 thread.start();
@@ -35,7 +35,7 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException{
-        ServerSocket serverSocket = new ServerSocket(1234);
+        ServerSocket serverSocket = new ServerSocket(1233);
         Server server = new Server(serverSocket);
         server.startServer();
     }
